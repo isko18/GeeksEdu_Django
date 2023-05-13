@@ -1,6 +1,16 @@
 from django.db import models
 
 # Create your models here.
+class Currency(models.Model):
+    name_currency = models.CharField(
+        max_length=50,
+        verbose_name="Название валюты"
+    )
+    def __str__(self) -> str:
+        return self.name_currency
+    class Meta:
+        verbose_name = "Валюта"
+        verbose_name_plural = "Валюты"
 class Setting(models.Model):
     title = models.CharField(
         max_length=255,
@@ -92,6 +102,15 @@ class Course(models.Model):
     )
     descriptions = models.TextField(
         verbose_name="Описание"
+    )
+    price = models.PositiveBigIntegerField(
+        verbose_name="Цена"
+    )
+    currency = models.ForeignKey(
+        Currency,
+        on_delete=models.CASCADE,
+        related_name="kyrsy_nd",
+        verbose_name="Название валюты"
     )
     def __str__(self):
         return self.title

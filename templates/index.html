@@ -1,4 +1,6 @@
-{% extends "homepage.html" %} {% load static %} {% block content %}
+{% extends "homepage.html" %} 
+{% load static %} 
+{% block content %}
 
 <!-- Banner Section -->
 <section class="banner-section">
@@ -62,17 +64,22 @@
 					<div class="lower-content">
 						<div class="clearfix">
 							<div class="pull-left">
-								<h5><a href="follow/">{{course.title}}</a></h5> </div>
-							<div class="pull-right">
-								<div class="price"></div>
+								<h5><a href="course.html">{{ course.title }}</a></h5>
 							</div>
+
 						</div>
-						<div class="text">{{course.descriptions}}</div>
+						<div class="text">{{ course.descriptions }}</div>
 						<div class="clearfix">
-							<div class="pull-left">
+							<div class="pull-right">
 								<div class="students"></div>
 							</div>
-							<div class="pull-right"> <a href="follow/" class="enroll">Записаться</a> </div>
+							<div class="pull-left ">
+								<div class= style= background-color:rgb(161, 161, 14)  ; 
+								class="price"> {{ course.price }} {{ course.currency }} 
+							 
+							</div>
+							</div>
+							<div class="pull-right Left"> <a href="follow/" class="enroll">Записаться</a> </div>
 						</div>
 					</div>
 				</div>

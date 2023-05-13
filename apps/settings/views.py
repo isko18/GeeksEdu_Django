@@ -3,14 +3,16 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from .forms import CourseFeedBackForm
-from .models import Setting,About,Slide,Course
+from .models import Setting,About,Slide,Course,Currency
 # Create your views here.
 def index(request):
+    currency = Currency.objects.latest("id")
     setting = Setting.objects.latest("id")
     about = About.objects.latest("id")
     slide = Slide.objects.latest("id")
     course = Course.objects.all()
     context = {
+        'currency':currency,
         'setting': setting,
         'about':about,
         'slide':slide,
